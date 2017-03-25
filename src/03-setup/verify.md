@@ -2,9 +2,11 @@
 
 Let's verify that all the tools were installed correctly.
 
-## Linux only
+## Platform Specific
 
-### Verify permissions
+### Linux
+
+#### Verify permissions
 
 Connect the F3 to your laptop using an USB cable. Be sure to connect the cable
 to the "USB ST-LINK" port, the USB port at the middle.
@@ -27,7 +29,7 @@ $ ls -l /dev/bus/usb/003/004
 crw-rw-r-- 1 root uucp 189, 262 Oct 27 00:00 /dev/bus/usb/003/004
 ```
 
-The group should be `uucp`. If it's not ... then check your [udev rules] and try
+The group should be `uucp` (or `dialout`). If it's not ... then check your [udev rules] and try
 re-loading them with:
 
 [udev rules]: 03-setup/linux.html#udev%20rules
@@ -53,7 +55,7 @@ $ ls -l /dev/bus/usb/003/005
 crw-rw-r--+ 1 root uucp 189, 261 Oct 27 00:00 /dev/bus/usb/003/005
 ```
 
-As before, the group should be `uucp`.
+As before, the group should be `uucp` (or `diaout`).
 
 ## All
 
