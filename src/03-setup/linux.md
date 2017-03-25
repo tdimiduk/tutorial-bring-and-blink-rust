@@ -4,23 +4,23 @@ Here are the installation commands for a few Linux distributions.
 
 ## REQUIRED packages
 
-- Ubuntu 16.04 or newer / Debian Jessie or newer
+- Ubuntu 16.04 or newer / Debian Jessie or newer:
 
 ```
 $ sudo apt-get install \
   gcc-arm-none-eabi \
   gdb-arm-none-eabi \
-  minicom \
+  git \
   openocd
 ```
 
-- Fedora 23 or newer
+- Fedora 23 or newer:
 
 ```
 $ sudo dnf install \
   arm-none-eabi-gcc-cs \
   arm-none-eabi-gdb \
-  minicom \
+  git \
   openocd
 ```
 
@@ -30,51 +30,29 @@ $ sudo dnf install \
 $ sudo pacman -S \
   arm-none-eabi-gcc \
   arm-none-eabi-gdb \
-  minicom \
+  git \
   openocd
-```
-
-## Optional packages
-
-- Ubuntu / Debian
-
-```
-$ sudo apt-get install \
-  bluez \
-  rfkill
-```
-
-- Fedora
-
-```
-$ sudo dnf install \
-  bluez \
-  rfkill
-```
-
-- Arch Linux
-
-```
-$ sudo pacman -S \
-  bluez \
-  bluez-utils \
-  rfkill
 ```
 
 ## udev rules
 
-These rules let you use USB devices like the F3 and the Serial module without
-root privilege, i.e. `sudo`.
-
-Create these two files in `/etc/udev/rules.d` with the contents shown below.
-
-```
-$ cat /etc/udev/rules.d/99-ftdi.rules
-# FT232 - USB <-> Serial Converter
-ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="uucp"
-```
+These rules let you use USB devices like the STM32F3's built in JTAG debugger
+without root privilege, i.e. `sudo`. To do this create the following file in
+`/etc/udev/rules.d`:
 
 ```
+$ cat >/etc/udev/rules.d/99-openocd.rules << EOL
+# STM32F3DISCOVERY rev A/B - ST-LINK/V2
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", GROUP="uucp"
+
+# STM32F3DISCOVERY rev C+ - ST-LINK/V2-1
+ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", GROUP="uucp"
+EOL
+```
+
+Now check the results:
+
+``
 $ cat /etc/udev/rules.d/99-openocd.rules
 # STM32F3DISCOVERY rev A/B - ST-LINK/V2
 ATTRS{idVendor}=="0483", ATTRS{idProduct}=="3748", GROUP="uucp"
@@ -89,10 +67,11 @@ Then reload the udev rules with:
 $ sudo udevadm control --reload-rules
 ```
 
-If you had any board plugged to your laptop, unplug them and then plug them in
-again.
+If you had the STM32F3NUCLEO plugged to your laptop, unplug it and then plug
+plug it back in.
 
-Finally, check if you are in the `uucp` group.
+Finally, check if you are in the `uucp` group (or on Fedora the `dialout`
+group).
 
 ```
 $ groups $(id -nu)
@@ -100,20 +79,34 @@ $ groups $(id -nu)
      ^^^^
 ```
 
-(`$(id -nu)` returns your user name. In my case it's `japaric`.)
+(`$(id -nu)` returns your user name. In my case it's `cwoodall`.)
 
-If `uucp` appears in the output. You are all set! Go to the [next section].
-Otherwise, keep reading:
+If `uucp` (or `dialout`) appears in the output. You are all set! Go to the
+[next section]. Otherwise, keep reading:
 
 [next section]: 03-setup/verify.html
 
-- Add yourself to the `uucp` group.
+- Add yourself to the `uucp` (or `dialout`) group.
 
 ```
 $ sudo usermod -a -G uucp $(id -u -n)
 ```
 
-- Check again the output of `groups`. `uucp` should be there this time!
+If you get:
+
+```
+usermod: group 'uucp' does not exist
+```
+
+Try to join the `dialout` group instead:
+
+```
+$ sudo usermod -a -G dialout $(id -u -n)
+```
+
+
+- Check again the output of `groups`. `uucp` (or `dialout`) should be there this
+  time!
 
 ```
 $ groups $(id -nu)
