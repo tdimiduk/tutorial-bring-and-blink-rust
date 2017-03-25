@@ -1,6 +1,10 @@
-# `Discovery`
+# `Discovery book edited for Embedded Systems Meetup`
 
 > Discover the world of microcontrollers through Rust
+
+## Modifications
+
+This is a modified version of japaric's Rust on Embedded book, modfied for https://www.meetup.com/Boston-Embedded-Systems-Meetup/events/238500760/#
 
 ## License
 
