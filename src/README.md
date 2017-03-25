@@ -1,27 +1,22 @@
-# Discovery
+# Boston Embdded Systems Meetup: Bring and Blink
 
 > Discover the world of microcontrollers through [Rust]!
 
 [Rust]: https://www.rust-lang.org/en-US/
 
-This book is an "introductory course" on microcontroller-based "embedded
+This book is an edited version for the Boston Embedded Systems Meetup and is
+based on [japaric's `discovery` book](http://japaric.github.io/discovery).
+This book is for an "introductory tutorial" on microcontroller-based "embedded
 systems" that uses Rust as the teaching language rather than the usual C/C++.
 
 ## Scope
 
-The following topics will be covered (eventually, I hope):
+The following topics will be covered in this tutorial:
 
 - How to write, build, flash and debug an "embedded" (Rust) program.
 
-- Functionality ("peripherals") commonly found in microcontrollers: Digital
-  input and output, Pulse Width Modulation (PWM), Analog to Digital Converters
-  (ADC), common communication protocols like Serial, I2C and SPI, etc.
-
-- Multitasking concepts: cooperative vs preemptive multitasking, interrupts,
-  schedulers, etc.
-
-- Control systems concepts: sensors, calibration, digital filters, actuators,
-  open loop control, closed loop control, etc.
+- How to make LEDs blink, print messages over JTAG using itm, and some basic
+  Rust.
 
 ## Approach
 
@@ -37,24 +32,39 @@ The following topics will be covered (eventually, I hope):
 
 ## Non-goals
 
-What's out of scope for this book:
+What's out of scope for this tutorial:
 
-- Teaching Rust. There's plenty of material on that topic already. We'll focus
-  on microcontrollers and embedded systems.
+- Teaching Rust in depth. There is plenty of material, and the officia [Rust
+  Programming Language Book](https://doc.rust-lang.org/book/) is a great place
+  to start.
 
-- Being a comprehensive text about electric circuit theory or electronics.
-  We'll just cover the minimum required to understand how some devices work.
+- Being a comprehensive introduction about electric circuit theory or
+  electronics. We'll just cover the minimum required to understand how some
+  devices work (if at all).
 
-- Covering Rustic, low level details. We won't be talking about linker scripts,
+- Covering Rustic, low-level details. We won't be talking about linker scripts,
   the boot process or how to glue those two into a minimally working Rust
   program. The [Copper] book has information on those topics though.
 
-Also I don't intent to port this material to other development boards; this book
-will make exclusive use of the STM32F3DISCOVERY development board.
+- Working with peripherals or anything more complicated than LEDs and basic
+  Rust programs the [Discovery] book is a great place to go after this book and
+  will keep you going. (Thanks japaric!)
+
+- Being a general reference for programming microcontrollers. The intent is to
+  get a handful of people up and running in a short period of time! Depth is
+  not our aim!
 
 [Copper]: https://japaric.github.io/copper/
+[Discovery]: https://japaric.github.io/discovery/
 
-## Sponsored by
+## Thanks To:
+
+- Canopy: for allowing us to use their space.
+- japaric: for writing a majority of the content.
+
+### Original Sponsors of the Discovery book
+
+This tutorial is based on japric's Discovery book which was sponsored by:
 
 <p align="center">
 <a href="http://integer32.com/">
