@@ -44,6 +44,27 @@ What does this board contain?
 - There's a second USB port, labeled "USB USER" that is connected to the main
   microcontroller, the STM32F303VCT6, and can be used in applications.
 
+## Documentation
+
+Tooling is not everything though. Without documentation it is pretty much
+impossible to work with microcontrollers (unless you are very good at reverse
+engineering and even then it would be a *lot* more work).
+
+We'll be referring to all these documents throughout this book:
+
+- [STM32F3DISCOVERY User Manual][um]
+- [STM32F303VC Datasheet][ds]
+- [STM32F303VC Reference Manual][rm]
+- [LSM303DLHC]
+- [L3GD20]
+
+[L3GD20]: http://www.st.com/resource/en/datasheet/l3gd20.pdf
+[LSM303DLHC]: http://www.st.com/resource/en/datasheet/lsm303dlhc.pdf
+[ds]: http://www.st.com/resource/en/datasheet/stm32f303vc.pdf
+[rm]: http://www.st.com/resource/en/reference_manual/dm00043574.pdf
+[um]: http://www.st.com/resource/en/user_manual/dm00063382.pdf
+
+
 ## The Serial module
 
 <p align="center">

@@ -1,44 +1,28 @@
-# Setting up a development environment
+# Setting up your development environment
 
-This section describes the common steps needed to set up rust and supporting tools. At the end of this section, developers should follow the instructions on their OS specific pages.
+This section describes the common steps needed to set up rust and supporting tools. Before following this section you should follow the OS specific sections:
 
-## Documentation
+- [Linux]
+- [macOS]
+- [Windows]
 
-Tooling is not everything though. Without documentation it is pretty much
-impossible to work with microcontrollers (unless you are very good at reverse
-engineering and even then it would be a *lot* more work).
+[Linux]: 03-setup/linux.html
+[macOS]: 03-setup/macos.html
+[Windows]: 03-setup/windows.html
 
-We'll be referring to all these documents throughout this book:
+## Requirements
 
-- [STM32F3DISCOVERY User Manual][um]
-- [STM32F303VC Datasheet][ds]
-- [STM32F303VC Reference Manual][rm]
-- [LSM303DLHC]
-- [L3GD20]
+We will use the following programs and tools. Where a minimum version is not
+specified, any recent version should work but we have listed the version we have
+tested.
 
-[L3GD20]: http://www.st.com/resource/en/datasheet/l3gd20.pdf
-[LSM303DLHC]: http://www.st.com/resource/en/datasheet/lsm303dlhc.pdf
-[ds]: http://www.st.com/resource/en/datasheet/stm32f303vc.pdf
-[rm]: http://www.st.com/resource/en/reference_manual/dm00043574.pdf
-[um]: http://www.st.com/resource/en/user_manual/dm00063382.pdf
-
-## Tools
-
-We'll use all the tools listed below. Where a minimum version is not specified,
-any recent version should work but we have listed the version we have tested.
-
-- Cargo & `rustc`  >= nightly-2016-10-05
-
-- [Xargo] >= 0.1.13. But 0.2.x is highly recommended.
-
-- [`itmdump`] >= 0.1.1
-
-- OpenOCD >=0.8. Tested version: 0.9.0
-
-- `arm-none-eabi-gcc`. Tested versions: 4.8, 5.2 and 6.2
-
-- `arm-none-eabi-gdb`. Version 7.12 or newer highly recommended. Tested
-  versions: 7.10, 7.11 and 7.12
+1. cargo & `rustc` (>= rust nightly 1.14).
+2. [Xargo] >= 0.2.x.
+3. [`itmdump`] >= 0.1.1
+4. OpenOCD >=0.8. Tested version: 0.9.0
+5. An `arm-none-eabi-gcc` toolchain. Including:
+  - `arm-none-eabi-gcc`. Tested versions: 4.8, 5.2 and 6.2
+  - `arm-none-eabi-gdb`. Version 7.12 or newer highly recommended. Tested versions: 7.10, 7.11 and 7.12
 
 [Xargo]: https://crates.io/crates/xargo
 [`itmdump`]: https://crates.io/crates/itm
@@ -47,12 +31,15 @@ Next, follow OS-agnostic installation instructions for a few of the tools:
 
 ### `rustc` & Cargo
 
-Install rustup by following the instructions at https://rustup.rs.
-
-Then, install or switch to the nightly channel.
+The preferred way to install rust and cargo is to follow the instructions
+at https://www.rust-lang.org/ for your particular platform. You should use
+the instructions which install `rustup`. Afterwards we will need to download
+and install the `nightly` build which is required for embedded development
+for the time being. To do that:
 
 ```
 $ rustup default nightly
+$ rustup component add rust-src # for Xargo later.
 ```
 
 ### Xargo
@@ -79,14 +66,6 @@ $ cargo install xargo
 $ xargo -V
 ```
 
-You will additionally need to install the `rust-src` component (the source of
-the Rust compiler and standard libraries) using `rustup` because Xargo (v0.2.0+)
-depends on it:
-
-```
-$ rustup component add rust-src
-```
-
 ### `itmdump`
 
 ```
@@ -94,6 +73,9 @@ $ cargo install itm
 ```
 
 ### OS specific instructions
+
+If you have not followed the platorm specific instructions please follow them
+now:
 
 - [Linux](03-setup/linux.html)
 - [Windows](03-setup/windows.html)
