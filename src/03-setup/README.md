@@ -1,12 +1,10 @@
 # Setting up a development environment
 
-Dealing with microcontrollers involves several tools as we'll be dealing with an
-architecture different than your laptop's and we'll have to run and debug
-programs on a "remote" device.
+This section describes the common steps needed to set up rust and supporting tools. At the end of this section, developers should follow the instructions on their OS specific pages.
 
 ## Documentation
 
-Tooling is not everything though. Without documentation is pretty much
+Tooling is not everything though. Without documentation it is pretty much
 impossible to work with microcontrollers (unless you are very good at reverse
 engineering and even then it would be a *lot* more work).
 
@@ -42,26 +40,8 @@ any recent version should work but we have listed the version we have tested.
 - `arm-none-eabi-gdb`. Version 7.12 or newer highly recommended. Tested
   versions: 7.10, 7.11 and 7.12
 
-- `minicom` on Linux and macOS. Tested version: 2.7. Readers report that
-  `picocom` also works but we'll use `minicom` in this text.
-
-- `PuTTY` on Windows.
-
 [Xargo]: https://crates.io/crates/xargo
 [`itmdump`]: https://crates.io/crates/itm
-
-If your laptop has Bluetooth functionality and you have the Bluetooth module,
-you can additionally install these tools to play with the Bluetooth module we'll
-be providing. All these are optional:
-
-- Linux, only if you don't have a Bluetooth manager application like Blueman.
-  - `bluez`
-  - `hcitool`
-  - `rfcomm`
-  - `rfkill`
-
-macOS / OSX / Windows users only need the default bluetooth manager that ships
-with their OS.
 
 Next, follow OS-agnostic installation instructions for a few of the tools:
 
