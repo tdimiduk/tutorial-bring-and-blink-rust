@@ -38,25 +38,6 @@ re-loading them with:
 $ sudo udevadm control --reload-rules
 ```
 
-Now let's repeat the procedure for the Serial module.
-
-Unplug the F3 and plug the Serial module. Now, figure out what's its associated
-file:
-
-```
-$ lsusb | grep -i ft232
-Bus 003 Device 005: ID 0403:6001 Future Technology Devices International, Ltd FT232 Serial (UART) IC
-```
-
-In my case, it's the `/dev/bus/usb/003/005`. Now, check its permissions:
-
-```
-$ ls -l /dev/bus/usb/003/005
-crw-rw-r--+ 1 root uucp 189, 261 Oct 27 00:00 /dev/bus/usb/003/005
-```
-
-As before, the group should be `uucp` (or `diaout`).
-
 ## All
 
 ### First OpenOCD connection
