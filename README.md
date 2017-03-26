@@ -4,7 +4,7 @@
 
 ## Modifications
 
-This is a modified version of japaric's Rust on Embedded book, modfied for https://www.meetup.com/Boston-Embedded-Systems-Meetup/events/238500760/#
+This is a modified version of japaric's Rust on Embedded book, modified for https://www.meetup.com/Boston-Embedded-Systems-Meetup/events/238500760/#
 
 ## License
 
