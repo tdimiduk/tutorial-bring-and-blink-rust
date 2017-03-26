@@ -24,7 +24,29 @@ Here are the materials we will be using:
 <p align="center">
 ![STM32 NUCLEO-F303RE](assets/f3.jpg)
 </p>
+  - We'll refer to this board as "F3" throughout this book.
+  - Specs:
+      - A STM32F303RET6 microcontroller. This microcontroller has
+    - A single core ARM Cortex-M4F processor with hardware support for single
+      precision floating point operations and a maximum clock frequency of 72 MHz.
 
+    - 512 KiB of "Flash" memory. (1 KiB = 10**24** bytes)
+
+    - 80 KiB of RAM.
+
+    - many "peripherals": timers, GPIO, I2C, SPI, USART, etc.
+
+    - lots of "pins" that are exposed in the two lateral "headers".
+
+    - Arduino-compatible headers.
+
+    - **IMPORTANT** This microcontroller operates at (around) 3.3V.
+
+    - A second microcontroller: a STM32F103CBT. This microcontroller is actually
+      part of an on-board programmer and debugger named ST-LINK and is connected to
+      the USB port named "USB ST-LINK".
+  - [Datasheet](http://www.st.com/content/ccc/resource/technical/document/datasheet/2c/6f/d7/64/1f/a3/4f/c9/DM00118585.pdf/files/DM00118585.pdf/jcr:content/translations/en.DM00118585.pdf)
+  - [Nucleo User Manual](http://www.st.com/content/ccc/resource/technical/document/user_manual/98/2e/fa/4b/e0/82/43/b7/DM00105823.pdf/files/DM00105823.pdf/jcr:content/translations/en.DM00105823.pdf)
 - One mini-B USB cables. One is required to make the STM32 NUCLEO board
   work.
 
