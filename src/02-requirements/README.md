@@ -22,8 +22,9 @@ Here are the materials we will be using:
 [1]: https://www.digikey.com/products/en?keywords=NUCLEO-F303RE
 
 <p align="center">
-![STM32 NUCLEO-F303RE](assets/f3.jpg)
+<img title="STM32 NUCLEO-F303RE" src="assets/f3.jpg" />
 </p>
+
   - We'll refer to this board as "F3" throughout this book.
   - Specs:
       - A STM32F303RET6 microcontroller. This microcontroller has
