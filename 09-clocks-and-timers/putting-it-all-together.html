@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="../">
+
+        <link rel="stylesheet" href="book.css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+
+        <!-- MathJax -->
+        <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = localStorage.getItem('theme');
+            if (theme == null) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = localStorage.getItem('sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li class="affix"><a href="README.html">Introduction</a></li><li><a href="01-background/README.html"><strong>1.</strong> Background</a></li><li><a href="02-requirements/README.html"><strong>2.</strong> Hardware/knowledge requirements</a></li><li><a href="03-setup/README.html"><strong>3.</strong> Setting up a development environment</a></li><li><ul class="section"><li><a href="03-setup/linux.html"><strong>3.1.</strong> Linux</a></li><li><a href="03-setup/windows.html"><strong>3.2.</strong> Windows</a></li><li><a href="03-setup/macos.html"><strong>3.3.</strong> macOS</a></li><li><a href="03-setup/verify.html"><strong>3.4.</strong> Verify the installation</a></li></ul></li><li><a href="05-led-roulette/README.html"><strong>4.</strong> LED roulette</a></li><li><ul class="section"><li><a href="05-led-roulette/build-it.html"><strong>4.1.</strong> Build it</a></li><li><a href="05-led-roulette/flash-it.html"><strong>4.2.</strong> Flash it</a></li><li><a href="05-led-roulette/debug-it.html"><strong>4.3.</strong> Debug it</a></li><li><a href="05-led-roulette/the-led-and-delay-modules.html"><strong>4.4.</strong> The <code>led</code> and <code>delay</code> modules</a></li><li><a href="05-led-roulette/the-challenge.html"><strong>4.5.</strong> The challenge</a></li><li><a href="05-led-roulette/my-solution.html"><strong>4.6.</strong> My solution</a></li></ul></li><li><a href="06-hello-world/README.html"><strong>5.</strong> Hello, world!</a></li><li><ul class="section"><li><a href="06-hello-world/panic.html"><strong>5.1.</strong> <code>panic!</code></a></li></ul></li><li><a href="07-registers/README.html"><strong>6.</strong> Registers</a></li><li><ul class="section"><li><a href="07-registers/rtrm.html"><strong>6.1.</strong> RTRM</a></li><li><a href="07-registers/optimization.html"><strong>6.2.</strong> (mis)Optimization</a></li><li><a href="07-registers/bad-address.html"><strong>6.3.</strong> <code>0xBAAAAAAD</code> address</a></li><li><a href="07-registers/spooky-action-at-a-distance.html"><strong>6.4.</strong> Spooky action at a distance</a></li><li><a href="07-registers/type-safe-manipulation.html"><strong>6.5.</strong> Type safe manipulation</a></li></ul></li><li><a href="08-leds-again/README.html"><strong>7.</strong> LEDs, again</a></li><li><ul class="section"><li><a href="08-leds-again/power.html"><strong>7.1.</strong> Power</a></li><li><a href="08-leds-again/configuration.html"><strong>7.2.</strong> Configuration</a></li></ul></li><li><a href="09-clocks-and-timers/README.html"><strong>8.</strong> Clocks and timers</a></li><li><ul class="section"><li><a href="09-clocks-and-timers/for-loop-delays.html"><strong>8.1.</strong> <code>for</code> loop delays</a></li><li><a href="09-clocks-and-timers/nop.html"><strong>8.2.</strong> NOP</a></li><li><a href="09-clocks-and-timers/one-shot-timer.html"><strong>8.3.</strong> One-shot timer</a></li><li><a href="09-clocks-and-timers/initialization.html"><strong>8.4.</strong> Initialization</a></li><li><a href="09-clocks-and-timers/busy-waiting.html"><strong>8.5.</strong> Busy waiting</a></li><li><a href="09-clocks-and-timers/putting-it-all-together.html" class="active"><strong>8.6.</strong> Putting it all together</a></li></ul></li><li><a href="explore.html">What's left for you to explore</a></li><li class="spacer"></li><li class="affix">Appendix</li><li class="affix"><a href="appendix/1-general-troubleshooting/README.html">General troubleshooting</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <h1>Putting it all together</h1>
+<pre><code class="language-rust">#![no_std]
+#![no_main]
+
+extern crate pg;
+
+use core::iter;
+
+use pg::led::LEDS;
+use pg::peripheral;
+
+#[inline(never)]
+fn delay(ms: u16) {
+    let tim7 = unsafe { peripheral::tim7_mut() };
+
+    // Set the timer to go off in `ms` ticks
+    // 1 tick = 1 ms
+    tim7.arr.write(|w| w.arr(ms));
+
+    // CEN: Enable the counter
+    tim7.cr1.modify(|_, w| w.cen(true));
+
+    // Wait until the alarm goes off (the &quot;update event&quot; occurs)
+    while !tim7.sr.read().uif() {}
+
+    // Clear the &quot;update&quot; flag
+    tim7.sr.write(|w| w);
+}
+
+#[inline(never)]
+#[no_mangle]
+pub fn main() -&gt; ! {
+    let (rcc, tim7) =
+        unsafe { (peripheral::rcc_mut(), peripheral::tim7_mut()) };
+
+    // Power on the TIM7 timer
+    rcc.apb1enr.modify(|_, w| w.tim7en(true));
+
+    // OPM Select the one pulse mode
+    // CEN Keep the counter disabled for now
+    tim7.cr1.write(|w| w.opm(false).cen(false));
+
+    // Configure the prescaler to have the counter operate at 1 KHz
+    // APB1_CLOCK = 8 MHz
+    // PSC = 7999
+    // 8 MHz / (7999 + 1) = 1 KHz
+    // The counter (CNT) will increase on every millisecond
+    tim7.psc.write(|w| w.psc(7_999));
+
+    loop {
+        for (current, next) in LEDS.iter()
+            .zip(LEDS.iter().skip(1).chain(iter::once(&amp;LEDS[0]))) {
+            next.on();
+            delay(50);
+            current.off();
+            delay(50);
+        }
+    }
+}
+``
+</code></pre>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a href="09-clocks-and-timers/busy-waiting.html" class="mobile-nav-chapters previous">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="explore.html" class="mobile-nav-chapters next">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="09-clocks-and-timers/busy-waiting.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="explore.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+    </body>
+</html>
